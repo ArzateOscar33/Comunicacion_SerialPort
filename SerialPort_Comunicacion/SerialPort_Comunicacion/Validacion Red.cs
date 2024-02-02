@@ -6,12 +6,16 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace SerialPort_Comunicacion
 {
     internal class Validacion_Red
     {
-       public List<string> Red = new List<string>();
+        private TcpListener _tcpListener;
+        private Thread _acceptThread;
+        public List<string> Red = new List<string>();
        public void ValidacionRed()
        {
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -34,5 +38,7 @@ namespace SerialPort_Comunicacion
                 }
             }
        }
+
+
     }
 }
