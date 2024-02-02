@@ -19,10 +19,13 @@ namespace SerialPort_Comunicacion
 
         //Llamamos a la clase
         Validacion v = new Validacion();
+        Validacion_Red r = new Validacion_Red();
         public Form1()
         {           
             InitializeComponent();
-            Validacion();
+            // v.ValidacionCOM();
+            r.ValidacionRed();
+            cBoxCOMPORT.DataSource = r.Red;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,11 +40,7 @@ namespace SerialPort_Comunicacion
             rbAlwaysUpdate.Checked = false;
 
         }
-        public async void Validacion()
-        {
-            v.ValidacionCOM();
 
-        }
         private void btnOpen_Click(object sender, EventArgs e)
         {
             try
